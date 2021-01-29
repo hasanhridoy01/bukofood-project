@@ -1914,7 +1914,7 @@ var sc_https=1;
     	<div class="container">
         	<div class="row align-items-center">
             	<div class="col-lg-4">
-                    <p class="copyright m-lg-0 text-center">BokuFoods by Agrobint - Copyright © 2020. All Rights Reserved </p>
+                    <p class="copyright m-lg-0 text-center">{{ $sliders -> copyright }}</p>
                 </div>
                 <div class="col-lg-4 order-lg-first">
                     <ul class="list_none footer_payment text-center text-lg-left">
@@ -1925,15 +1925,19 @@ var sc_https=1;
                        
                     </ul>
                 </div>
+                @php
+                 $social_json = json_decode($sliders -> social);
+                @endphp
                 <div class="col-lg-4">
                     <ul class="list_none social_icons radius_social text-center text-lg-right">
-                        <li><a href="#" class="sc_facebook"><i class="fab fa-facebook-f"></i></a></li>
-                        <li><a href="#" class="sc_twitter"><i class="fab fa-twitter"></i></a></li>
-                        <li><a href="#" class="sc_google"><i class="fab fa-google-plus-g"></i></a></li>
-                        <li><a href="#" class="sc_instagram"><i class="fab fa-instagram"></i></a></li>
-                        <li><a href="#" class="sc_pinterest"><i class="fab fa-pinterest"></i></a></li>
+                        <li><a href="{{ $social_json -> facebook }}" class="sc_facebook"><i class="fab fa-facebook-f"></i></a></li>
+                        <li><a href="{{ $social_json -> instragram }}" class="sc_twitter"><i class="fab fa-twitter"></i></a></li>
+                        <li><a href="{{ $social_json -> tiwtter }}" class="sc_google"><i class="fab fa-google-plus-g"></i></a></li>
+                        <li><a href="{{ $social_json -> google }}" class="sc_instagram"><i class="fab fa-instagram"></i></a></li>
+                        <li><a href="{{ $social_json -> pinterest }}" class="sc_pinterest"><i class="fab fa-pinterest"></i></a></li>
                     </ul>
                 </div>
+
             </div>
         </div>
     </div>

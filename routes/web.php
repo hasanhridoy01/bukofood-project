@@ -49,5 +49,10 @@ Route::get('how-page', 'App\Http\Controllers\FrontendController@HowPageShow') ->
 Route::get('slider-add', 'App\Http\Controllers\HomePageController@SliderPageShow') -> name('sldier.add');
 Route::post('slider-store', 'App\Http\Controllers\HomePageController@SliderPageStore') -> name('sldier.store');
 Route::get('copy-add', 'App\Http\Controllers\HomePageController@CopyPageShow') -> name('copy.index');
+Route::post('copy-update', 'App\Http\Controllers\HomePageController@CopyUpdate') -> name('copy.update');
 Route::get('patner-add', 'App\Http\Controllers\HomePageController@PatnerPageShow') -> name('patner.index');
 Route::post('patner-update', 'App\Http\Controllers\HomePageController@PatnerUpdate') -> name('patner.update');
+Route::get('member-add', 'App\Http\Controllers\HomePageController@MemberPageShow') -> name('member.add');
+Route::post('member-update', 'App\Http\Controllers\HomePageController@MemberUpdate') -> name('member.update');
+Route::get('social-add', 'App\Http\Controllers\HomePageController@SocialPageShow') -> name('social.add');
+Route::post('social-update', 'App\Http\Controllers\HomePageController@SocialUpdate') -> name('social.update');

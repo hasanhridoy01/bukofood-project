@@ -169,6 +169,17 @@
             //img show
             $('#patner_image4').attr('src', file_img_url4);
       });
+
+      //Member Image Change
+      $(document).on('change','#mimage', function(e){
+            e.preventDefault();
+
+            //get value
+            let file_img_url = URL.createObjectURL(e.target.files[0]);
+
+            //show image
+            $('#member_image1').attr('src', file_img_url);
+      });
  
 
 	});

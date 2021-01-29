@@ -23,8 +23,9 @@
                     <a href="#"><i class="fe fe-document"></i> <span> Settings</span> <span class="menu-arrow"></span></a>
                    <ul style="display: none;">
                         <li><a href="{{ route('sldier.add') }}">Slider</a></li>
-                        <li><a href="">Member</a></li>
+                        <li><a href="{{ route('member.add') }}">Member</a></li>
                         <li><a href="{{ route('patner.index') }}">Patner</a></li>
+                        <li><a href="{{ route('social.add') }}">Social</a></li>
                         <li><a href="{{ route('copy.index') }}">CopyRight</a></li>
                     </ul>
                 </li>

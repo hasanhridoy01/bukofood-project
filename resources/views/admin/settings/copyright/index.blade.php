@@ -19,8 +19,7 @@
             </div>
         </div>
         <!-- /Page Header -->
-
-
+        
         <div class="row">
             <div class="col-lg-10">
                 @include('validate')
@@ -29,16 +28,18 @@
                         <h4 class="card-title">CopyRight Update</h4>
                     </div>
                     <div class="card-body">
-                       <form action="" method="POST" enctype="multipart/form-data">
+                     
+                       <form action="{{ route('copy.update') }}" method="POST" enctype="multipart/form-data">
                         @csrf
                            <div class="form-group">
                               <label for="">CopyRight</label>
-                              <input class="form-control" type="text" name="copyright" value=""> 
+                              <input class="form-control" type="text" name="copyright" value="{{ $data -> copyright }}"> 
                            </div>
                            <div class="form-group">
                                <input type="submit" value="Update" class="btn btn-info">
                            </div>
                        </form>
+                       
                     </div>
                 </div>
             </div>

@@ -19,6 +19,9 @@
             </div>
         </div>
         <!-- /Page Header -->
+        @php
+          $patner_json = json_decode($data -> patner)
+        @endphp
         <div class="row">
             <div class="col-lg-10">
                 @include('validate')
@@ -31,7 +34,7 @@
                         @csrf
                            <h4 style="color: red;">Patner 1 Image</h4>
                            <div class="form-group">
-                               <img style="max-width: 150px; max-width: 150px;" class="bg-light" src="" alt="">
+                               <img style="max-width: 150px; max-width: 150px;" class="bg-light" src="{{ URL::to('/') }}/media/patner/{{ $patner_json -> patner_image1 }}" alt="">
                                <br>
                                <br>
                                <input type="hidden" name="old_logo1" value="">
@@ -42,7 +45,7 @@
                            </div>
                            <h4 style="color: yellow;">patner 2 Image</h4>
                            <div class="form-group">
-                               <img style="max-width: 150px; max-width: 150px;" class="bg-light" src="" alt="">
+                               <img style="max-width: 150px; max-width: 150px;" class="bg-light" src="{{ URL::to('/') }}/media/patner/{{ $patner_json -> patner_image2 }}" alt="">
                                <br>
                                <br>
                                <input type="hidden" name="old_logo2" value="">
@@ -53,7 +56,7 @@
                            </div>
                            <h4 style="color: blue;">patner 3 Image</h4>
                            <div class="form-group">
-                               <img style="max-width: 150px; max-width: 150px;" class="bg-light" src="" alt="">
+                               <img style="max-width: 150px; max-width: 150px;" class="bg-light" src="{{ URL::to('/') }}/media/patner/{{ $patner_json -> patner_image3 }}" alt="">
                                <br>
                                <br>
                                <input type="hidden" name="old_logo3" value="">
@@ -64,7 +67,7 @@
                            </div>
                            <h4 style="color: green;">patner 4 Image</h4>
                            <div class="form-group">
-                               <img style="max-width: 150px; max-width: 150px;" class="bg-light" src="" alt="">
+                               <img style="max-width: 150px; max-width: 150px;" class="bg-light" src="{{ URL::to('/') }}/media/patner/{{ $patner_json -> patner_image4 }}" alt="">
                                <br>
                                <br>
                                <input type="hidden" name="old_logo4" value="">

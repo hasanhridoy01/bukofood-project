@@ -87,19 +87,170 @@ class HomePageController extends Controller
 
     //CopyRight Section
     public function CopyPageShow()
+    {   
+        $data = HomePage::find(2);
+        return view('admin.settings.copyright.index', compact('data'));
+    }
+
+    //CopyRight Update
+    public function CopyUpdate(Request $request)
     {
-        return view('admin.settings.copyright.index');
+        //form validation
+        $this -> validate($request, [
+            'copyright' => 'required',
+        ]);
+
+        //data update with database
+        $data = HomePage::find(2);
+        $data -> copyright = $request -> copyright;
+        $data -> update();
+
+        //return with homepage
+        return redirect() -> route('copy.index') -> with('success', 'Slider Updated Successful');
     }
 
     //Patner Page Show
     public function PatnerPageShow()
-    {
-         return view('admin.settings.patner.index'); 
+    {    
+         $data = HomePage::find(2);
+         return view('admin.settings.patner.index', compact('data')); 
     }
 
     //Patner Update
     public function PatnerUpdate(Request $request)
     {
-        return $request -> all();
+        //img unique name1
+        if ( $request -> hasFile('new-logo1') ) {
+            $img = $request -> file('new-logo1');
+            $unique_img_name1 = md5(rand().time()) .'.'. $img -> getClientOriginalExtension();
+            $img -> move(public_path('media/patner/'), $unique_img_name1);
+        }
+
+        //img unique name2
+        if ( $request -> hasFile('new-logo2') ) {
+            $img2 = $request -> file('new-logo2');
+            $unique_img_name2 = md5(rand().time()) .'.'. $img2 -> getClientOriginalExtension();
+            $img2 -> move(public_path('media/patner/'), $unique_img_name2);
+        }
+
+        //img unique name3
+        if ( $request -> hasFile('new-logo3') ) {
+            $img3 = $request -> file('new-logo3');
+            $unique_img_name3 = md5(rand().time()) .'.'. $img3 -> getClientOriginalExtension();
+            $img3 -> move(public_path('media/patner/'), $unique_img_name3);
+        }
+
+        //img unique name4
+        if ( $request -> hasFile('new-logo4') ) {
+            $img4 = $request -> file('new-logo4');
+            $unique_img_name4 = md5(rand().time()) .'.'. $img4 -> getClientOriginalExtension();
+            $img4 -> move(public_path('media/patner/'), $unique_img_name4);
+        }
+
+        //patner value array convert
+        $patner_array = [
+            'patner_image1' => $unique_img_name1,
+            'patner_image2' => $unique_img_name2,
+            'patner_image3' => $unique_img_name3,
+            'patner_image4' => $unique_img_name4,
+        ];
+        
+        //patner json data
+        $patner_json = json_encode($patner_array);
+
+        //find data
+        $data = HomePage::find(2);
+        $data -> patner = $patner_json;
+        $data -> update();
+
+        //return with homepage
+        return redirect() -> route('patner.add') -> with('success', 'Slider Updated Successful');
+    }
+
+    //Member Page show
+    public function MemberPageShow()
+    {   
+        $data = HomePage::find(2);
+        return view('admin.settings.member.index', compact('data'));
+    }
+
+    //member Update
+    public function MemberUpdate(Request $request)
+    {
+        //form validation
+        $this -> validate($request, [
+            'name' => 'required',
+            'content' => 'required',
+        ]);
+
+        $old_photo = $request -> old_photo;
+
+        //file Upload
+        if ( $request -> hasFile('new-photo') ) {
+            $img = $request -> file('new-photo');
+            $unique_img_name = md5(rand().time()) .'.'. $img -> getClientOriginalExtension();
+            $img -> move(public_path('media/member/'), $unique_img_name);
+            unlink('media/member/' . $old_photo);
+        }else{
+            $unique_img_name = $old_photo;
+        }
+
+        //Data Send With database
+        $member_array = [
+            'name' => $request -> name,
+            'content' => $request -> content,
+            'job' => $request -> job,
+            'member_image' => $unique_img_name,
+        ];
+
+        $member_json = json_encode($member_array);
+
+        //find data with database
+        $data = HomePage::find(2);
+        $data -> member = $member_json;
+        $data -> update();
+
+        //return with homepage
+        return redirect() -> route('member.add') -> with('success', 'Slider Updated Successful');
+    }
+
+    //Social Page Show
+    public function SocialPageShow()
+    {   
+        $data = HomePage::find(2);
+        return view('admin.settings.social.index', compact('data'));
+    }
+
+    //social update
+    public function SocialUpdate(Request $request)
+    {
+        //form validation
+        $this -> validate($request, [
+             'facebook'   => 'required',
+             'instragram' => 'required',
+             'tiwtter'    => 'required',
+             'google'     => 'required',
+             'pinterest'  => 'required',
+        ]);
+
+        //form data array convert
+        $social_array = [
+             'facebook' => $request -> facebook,
+             'instragram' => $request -> instragram,
+             'tiwtter' => $request -> tiwtter,
+             'google' => $request -> google,
+             'pinterest' => $request -> pinterest,
+        ];
+
+        //social data json convert
+        $social_json = json_encode($social_array);
+
+        //find data with database
+        $data = HomePage::find(2);
+        $data -> social = $social_json;
+        $data -> update();
+
+        //return with homepage
+        return redirect() -> route('social.add') -> with('success', 'Slider Updated Successful');
     }
 }
