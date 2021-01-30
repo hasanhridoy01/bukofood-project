@@ -125,7 +125,7 @@ var sc_https=1;
                     </li>
 
                       <li>
-                        <a class="nav-link" href="shopa.html">Shop</a>
+                        <a class="nav-link" href="{{ route('shop.page') }}">Shop</a>
                     </li>
                     
                       <li>

@@ -24,8 +24,9 @@ class FrontendController extends Controller
 
     //shop page show
     public function ShopPageShow()
-    {
-    	return view('frontend.shop');
+    {   
+        $products = Product::latest() -> get();
+    	return view('frontend.shop', compact('products'));
     }
 
     //contect page show

@@ -113,7 +113,7 @@ var sc_https=1;
             <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
                 <ul class="navbar-nav">
                     <li>
-                        <a class="nav-link" href="index.html">Home</a>
+                        <a class="nav-link" href="{{ route('home.page') }}">Home</a>
                     </li>
 
                     <li>
@@ -125,7 +125,7 @@ var sc_https=1;
                     </li>
 
                       <li>
-                        <a class="nav-link" href="shop.html">Shop</a>
+                        <a class="nav-link" href="#">Shop</a>
                     </li>
                     
                       <li>
@@ -203,11 +203,12 @@ var sc_https=1;
 <section>
 	<div class="container">
     	<div class="row">
+            @foreach( $products as $product )
             <div class="col-xl-3 col-lg-4 col-sm-6">
                 <div class="product">
                     <span class="pr_flash bg_green">Sale</span>
                     <div class="product_img">
-                        <a href="#"><img src="frontend/./asset/img/product_img1.jpg" alt="product_img1"></a>
+                        <a href="#"><img src="{{ URL::to('/') }}/media/product/{{ $product -> product_image }}" alt="product_img1"></a>
                         <div class="product_action_box">
                             <ul class="list_none pr_action_btn">
                                 <li><a href="#"><i class="ti-heart"></i></a></li>
@@ -217,149 +218,14 @@ var sc_https=1;
                         </div>
                     </div>
                     <div class="product_info">
-                        <h6><a href="https://bestwebcreator.com/organiq/demo/shop-four-columns.html#">Fresh Organic Strawberry</a></h6>
+                        <h6><a href="https://bestwebcreator.com/organiq/demo/shop-four-columns.html#">{{ $product -> name }}</a></h6>
                         <div class="rating"><div class="product_rate" style="width:80%"></div></div>
-                        <span class="price">$35.00</span>
+                        <span class="price">${{ $product -> price }}</span>
                     </div>
                 </div>
             </div>
-            <div class="col-xl-3 col-lg-4 col-sm-6">
-                <div class="product">
-                    <span class="pr_flash bg_orange">-10%</span>
-                    <div class="product_img">
-                        <a href="https://bestwebcreator.com/organiq/demo/shop-four-columns.html#"><img src="frontend/./asset/img/product_img2.jpg" alt="product_img2"></a>
-                        <div class="product_action_box">
-                            <ul class="list_none pr_action_btn">
-                                <li><a href="https://bestwebcreator.com/organiq/demo/shop-four-columns.html#"><i class="ti-heart"></i></a></li>
-                                <li><a href="https://bestwebcreator.com/organiq/demo/shop-four-columns.html#"><i class="ti-shopping-cart"></i></a></li>
-                                <li><a href="http://bestwebcreator.com//organiq/demo/shop-quick-view.html" class="popup-ajax"><i class="ti-eye"></i></a></li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="product_info">
-                        <h6><a href="https://bestwebcreator.com/organiq/demo/shop-four-columns.html#">Fresh Organic Grapes</a></h6>
-                        <div class="rating"><div class="product_rate" style="width:80%"></div></div>
-                        <span class="price">$40.00</span>
-                    </div>
-                </div>
-            </div>
-            <div class="col-xl-3 col-lg-4 col-sm-6">
-                <div class="product">
-                    <div class="product_img">
-                        <a href="https://bestwebcreator.com/organiq/demo/shop-four-columns.html#"><img src="frontend/./asset/img/product_img3.jpg" alt="product_img3"></a>
-                        <div class="product_action_box">
-                            <ul class="list_none pr_action_btn">
-                                <li><a href="https://bestwebcreator.com/organiq/demo/shop-four-columns.html#"><i class="ti-heart"></i></a></li>
-                                <li><a href="https://bestwebcreator.com/organiq/demo/shop-four-columns.html#"><i class="ti-shopping-cart"></i></a></li>
-                                <li><a href="http://bestwebcreator.com//organiq/demo/shop-quick-view.html" class="popup-ajax"><i class="ti-eye"></i></a></li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="product_info">
-                        <h6><a href="https://bestwebcreator.com/organiq/demo/shop-four-columns.html#">Fresh Organic Cucumber</a></h6>
-                        <div class="rating"><div class="product_rate" style="width:60%"></div></div>
-                        <span class="price">$52.00</span>
-                    </div>
-                </div>
-            </div>
-            <div class="col-xl-3 col-lg-4 col-sm-6">
-                <div class="product">
-                    <span class="pr_flash bg_green">Sale</span>
-                    <div class="product_img">
-                        <a href="https://bestwebcreator.com/organiq/demo/shop-four-columns.html#"><img src="frontend/./asset/img/product_img4.jpg" alt="product_img4"></a>
-                        <div class="product_action_box">
-                            <ul class="list_none pr_action_btn">
-                                <li><a href="https://bestwebcreator.com/organiq/demo/shop-four-columns.html#"><i class="ti-heart"></i></a></li>
-                                <li><a href="https://bestwebcreator.com/organiq/demo/shop-four-columns.html#"><i class="ti-shopping-cart"></i></a></li>
-                                <li><a href="http://bestwebcreator.com//organiq/demo/shop-quick-view.html" class="popup-ajax"><i class="ti-eye"></i></a></li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="product_info">
-                        <h6><a href="https://bestwebcreator.com/organiq/demo/shop-four-columns.html#">Fresh Organic Orange</a></h6>
-                        <div class="rating"><div class="product_rate" style="width:100%"></div></div>
-                        <span class="price">$39.00</span>
-                    </div>
-                </div>
-            </div>
-            <div class="col-xl-3 col-lg-4 col-sm-6">
-                <div class="product">
-                    <div class="product_img">
-                        <a href="https://bestwebcreator.com/organiq/demo/shop-four-columns.html#"><img src="frontend/./asset/img/product_img5.jpg" alt="product_img5"></a>
-                        <div class="product_action_box">
-                            <ul class="list_none pr_action_btn">
-                                <li><a href="https://bestwebcreator.com/organiq/demo/shop-four-columns.html#"><i class="ti-heart"></i></a></li>
-                                <li><a href="https://bestwebcreator.com/organiq/demo/shop-four-columns.html#"><i class="ti-shopping-cart"></i></a></li>
-                                <li><a href="http://bestwebcreator.com//organiq/demo/shop-quick-view.html" class="popup-ajax"><i class="ti-eye"></i></a></li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="product_info">
-                        <h6><a href="https://bestwebcreator.com/organiq/demo/shop-four-columns.html#">100% Organic Juices</a></h6>
-                        <div class="rating"><div class="product_rate" style="width:100%"></div></div>
-                        <span class="price">$33.00</span>
-                    </div>
-                </div>
-            </div>
-            <div class="col-xl-3 col-lg-4 col-sm-6">
-                <div class="product">
-                    <div class="product_img">
-                        <a href="https://bestwebcreator.com/organiq/demo/shop-four-columns.html#"><img src="frontend/./asset/img/product_img6.jpg" alt="product_img6"></a>
-                        <div class="product_action_box">
-                            <ul class="list_none pr_action_btn">
-                                <li><a href="https://bestwebcreator.com/organiq/demo/shop-four-columns.html#"><i class="ti-heart"></i></a></li>
-                                <li><a href="https://bestwebcreator.com/organiq/demo/shop-four-columns.html#"><i class="ti-shopping-cart"></i></a></li>
-                                <li><a href="http://bestwebcreator.com//organiq/demo/shop-quick-view.html" class="popup-ajax"><i class="ti-eye"></i></a></li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="product_info">
-                        <h6><a href="https://bestwebcreator.com/organiq/demo/shop-four-columns.html#">Fresh Organic Banana</a></h6>
-                        <div class="rating"><div class="product_rate" style="width:60%"></div></div>
-                        <span class="price">$42.00</span>
-                    </div>
-                </div>
-            </div>
-            <div class="col-xl-3 col-lg-4 col-sm-6">
-                <div class="product">
-                    <span class="pr_flash bg_red">Hot</span>
-                    <div class="product_img">
-                        <a href="https://bestwebcreator.com/organiq/demo/shop-four-columns.html#"><img src="frontend/./asset/img/product_img7.jpg" alt="product_img7"></a>
-                        <div class="product_action_box">
-                            <ul class="list_none pr_action_btn">
-                                <li><a href="https://bestwebcreator.com/organiq/demo/shop-four-columns.html#"><i class="ti-heart"></i></a></li>
-                                <li><a href="https://bestwebcreator.com/organiq/demo/shop-four-columns.html#"><i class="ti-shopping-cart"></i></a></li>
-                                <li><a href="http://bestwebcreator.com//organiq/demo/shop-quick-view.html" class="popup-ajax"><i class="ti-eye"></i></a></li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="product_info">
-                        <h6><a href="https://bestwebcreator.com/organiq/demo/shop-four-columns.html#">Fresh Organic Tomato</a></h6>
-                        <div class="rating"><div class="product_rate" style="width:80%"></div></div>
-                        <span class="price">$54.00</span>
-                    </div>
-                </div>
-            </div>
-            <div class="col-xl-3 col-lg-4 col-sm-6">
-                <div class="product">
-                    <span class="pr_flash bg_orange">-25%</span>
-                    <div class="product_img">
-                        <a href="https://bestwebcreator.com/organiq/demo/shop-four-columns.html#"><img src="frontend/./asset/img/product_img8.jpg" alt="product_img8"></a>
-                        <div class="product_action_box">
-                            <ul class="list_none pr_action_btn">
-                                <li><a href="https://bestwebcreator.com/organiq/demo/shop-four-columns.html#"><i class="ti-heart"></i></a></li>
-                                <li><a href="https://bestwebcreator.com/organiq/demo/shop-four-columns.html#"><i class="ti-shopping-cart"></i></a></li>
-                                <li><a href="http://bestwebcreator.com//organiq/demo/shop-quick-view.html" class="popup-ajax"><i class="ti-eye"></i></a></li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="product_info">
-                        <h6><a href="https://bestwebcreator.com/organiq/demo/shop-four-columns.html#">Fresh Organic Carrots</a></h6>
-                        <div class="rating"><div class="product_rate" style="width:80%"></div></div>
-                        <span class="price">$32.00</span>
-                    </div>
-                </div>
-            </div>
+            @endforeach
+            {{-- {{ $products -> links() }} --}}
         </div>
         <div class="row">
             <div class="col-12 mt-3 mt-lg-4">
